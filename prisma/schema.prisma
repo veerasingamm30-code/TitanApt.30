@@ -1,0 +1,541 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  LEARNER
+  REVIEWER
+  ADMIN
+}
+
+enum Subject {
+  QUANTITATIVE
+  LOGICAL
+  VERBAL
+  DATA_INTERPRETATION
+  TECHNICAL
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum LessonLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}
+
+enum LessonStatus {
+  DRAFT
+  IN_REVIEW
+  APPROVED
+  RETIRED
+}
+
+enum ReviewStatus {
+  PENDING
+  NEEDS_FIX
+  QUARANTINED
+  APPROVED
+  REJECTED
+  RETIRED
+}
+
+enum ProgressStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum MockStatus {
+  DRAFT
+  PUBLISHED
+  RETIRED
+}
+
+enum MockAttemptStatus {
+  IN_PROGRESS
+  SUBMITTED
+  EXPIRED
+}
+
+enum AttemptMode {
+  PRACTICE
+  CHECKPOINT
+}
+
+enum ImportStatus {
+  QUEUED
+  RUNNING
+  COMPLETED
+  FAILED
+}
+
+enum ExtractionStatus {
+  TEXT_LAYER
+  PARTIAL_TEXT
+  NEEDS_OCR
+}
+
+enum QuestionFlagStatus {
+  OPEN
+  REVIEWED
+  DISMISSED
+}
+
+model User {
+  id              String   @id @default(cuid())
+  emailOriginal   String
+  emailNormalized String   @unique
+  passwordHash    String
+  role            Role     @default(LEARNER)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  lastLoginAt     DateTime?
+
+  profile          UserProfile?
+  sessions         Session[]
+  attempts         QuestionAttempt[]
+  practiceSessions PracticeSession[]
+  mockAttempts     MockTestAttempt[]
+  bookmarks        Bookmark[]
+  progress         UserProgress[]
+  flags            QuestionFlag[]
+  checklist        ResourceChecklistProgress[]
+  auditLogs        AdminAuditLog[]
+  createdImports   ImportJob[]
+  createdMocks     MockTest[]
+
+  @@index([role])
+}
+
+model UserProfile {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  displayName String
+  timezone    String   @default("Asia/Kolkata")
+  targetExam  String?
+  dailyGoal   Int      @default(10)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Session {
+  id         String   @id @default(cuid())
+  tokenHash  String   @unique
+  userId     String
+  createdAt  DateTime @default(now())
+  lastSeenAt DateTime @default(now())
+  expiresAt  DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model Topic {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  subject     Subject
+  group       String
+  description String
+  order       Int
+  isPublished Boolean  @default(false)
+  sourceNote  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  lessons   Lesson[]
+  questions Question[]
+
+  @@index([subject, order])
+}
+
+model Lesson {
+  id             String       @id @default(cuid())
+  topicId        String
+  slug           String       @unique
+  title          String
+  level          LessonLevel @default(BEGINNER)
+  order          Int          @default(1)
+  status         LessonStatus @default(DRAFT)
+  objective      String
+  explanation    String
+  analogy        String?
+  workedExamples Json
+  rule           Json
+  mistakes       Json
+  memoryTip      String
+  practice       Json
+  sourceRef      String
+  reviewer       String?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  topic       Topic               @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  checkpoints LessonCheckpoint[]
+  progress    UserProgress[]
+
+  @@unique([topicId, level])
+  @@index([status])
+}
+
+model LessonCheckpoint {
+  id         String @id @default(cuid())
+  lessonId   String
+  questionId String
+  position   Int
+
+  lesson   Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Restrict)
+
+  @@unique([lessonId, questionId])
+  @@unique([lessonId, position])
+}
+
+model Question {
+  id               String       @id @default(cuid())
+  topicId          String
+  stem             String
+  statement        String?
+  explanation      String
+  reasoning        String?
+  steps            Json
+  shortcuts        String?
+  difficulty       Difficulty
+  difficultyBasis  String
+  reviewStatus     ReviewStatus @default(PENDING)
+  fingerprint      String
+  sourceDocument   String
+  sourcePage       Int
+  sourceKey        String       @unique
+  sourceCheck      String?
+  companyTags      String[]     @default([])
+  correctOptionId  String?      @unique
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+
+  topic          Topic                  @relation(fields: [topicId], references: [id], onDelete: Restrict)
+  correctOption  QuestionOption?        @relation("QuestionCorrectOption", fields: [correctOptionId], references: [id], onDelete: SetNull)
+  options        QuestionOption[]       @relation("QuestionOptions")
+  attempts       QuestionAttempt[]
+  practiceItems  PracticeSessionQuestion[]
+  mockItems      MockAttemptQuestion[]
+  bookmarks      Bookmark[]
+  checkpoints    LessonCheckpoint[]
+  flags          QuestionFlag[]
+  candidateLinks CandidateQuestion[]
+
+  @@index([topicId, difficulty, reviewStatus])
+  @@index([reviewStatus])
+  @@index([fingerprint])
+}
+
+model QuestionOption {
+  id         String @id @default(cuid())
+  questionId String
+  label      String
+  text       String
+
+  question          Question  @relation("QuestionOptions", fields: [questionId], references: [id], onDelete: Cascade)
+  correctForQuestion Question? @relation("QuestionCorrectOption")
+  selectedAttempts  QuestionAttempt[]
+  selectedInPractice PracticeSessionQuestion[]
+  selectedInMock     MockAttemptQuestion[]
+
+  @@unique([questionId, label])
+}
+
+model QuestionAttempt {
+  id                String   @id @default(cuid())
+  userId            String
+  questionId        String
+  selectedOptionId  String
+  isCorrect         Boolean
+  answeredAt        DateTime @default(now())
+  durationMs        Int?
+  idempotencyKey    String
+  mode              AttemptMode @default(PRACTICE)
+  practiceSessionId String?
+
+  user            User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question        Question              @relation(fields: [questionId], references: [id], onDelete: Restrict)
+  selectedOption  QuestionOption        @relation(fields: [selectedOptionId], references: [id], onDelete: Restrict)
+  practiceSession PracticeSession?      @relation(fields: [practiceSessionId], references: [id], onDelete: SetNull)
+
+  @@unique([userId, idempotencyKey])
+  @@index([userId, answeredAt])
+  @@index([questionId])
+  @@index([userId, questionId, answeredAt])
+}
+
+model PracticeSession {
+  id          String    @id @default(cuid())
+  userId      String
+  filters     Json
+  questionCount Int
+  createdAt   DateTime  @default(now())
+  completedAt DateTime?
+
+  user      User                     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  questions PracticeSessionQuestion[]
+  attempts  QuestionAttempt[]
+
+  @@index([userId, createdAt])
+}
+
+model PracticeSessionQuestion {
+  id                String    @id @default(cuid())
+  sessionId         String
+  questionId        String
+  position          Int
+  answeredAt        DateTime?
+  selectedOptionId  String?
+
+  session        PracticeSession  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  question       Question         @relation(fields: [questionId], references: [id], onDelete: Restrict)
+  selectedOption QuestionOption?  @relation(fields: [selectedOptionId], references: [id], onDelete: SetNull)
+
+  @@unique([sessionId, questionId])
+  @@unique([sessionId, position])
+}
+
+model MockTest {
+  id              String     @id @default(cuid())
+  slug            String     @unique
+  title           String
+  description     String
+  durationMinutes Int
+  sections        Json
+  marking         Json
+  status          MockStatus @default(DRAFT)
+  sourceNote      String?
+  createdById     String?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  createdBy User?              @relation(fields: [createdById], references: [id], onDelete: SetNull)
+  attempts  MockTestAttempt[]
+
+  @@index([status])
+}
+
+model MockTestAttempt {
+  id           String            @id @default(cuid())
+  userId       String
+  mockTestId   String
+  startedAt    DateTime          @default(now())
+  deadlineAt   DateTime
+  submittedAt  DateTime?
+  status       MockAttemptStatus @default(IN_PROGRESS)
+  score        Int?
+  maxScore     Int?
+  percentage   Float?
+  createdAt    DateTime          @default(now())
+
+  user      User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  mockTest  MockTest             @relation(fields: [mockTestId], references: [id], onDelete: Restrict)
+  questions MockAttemptQuestion[]
+
+  @@index([userId, startedAt])
+  @@index([mockTestId])
+}
+
+model MockAttemptQuestion {
+  id               String    @id @default(cuid())
+  attemptId        String
+  questionId       String
+  position         Int
+  selectedOptionId String?
+  answeredAt       DateTime?
+
+  attempt        MockTestAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  question       Question       @relation(fields: [questionId], references: [id], onDelete: Restrict)
+  selectedOption QuestionOption? @relation(fields: [selectedOptionId], references: [id], onDelete: SetNull)
+
+  @@unique([attemptId, questionId])
+  @@unique([attemptId, position])
+}
+
+model Bookmark {
+  id         String   @id @default(cuid())
+  userId     String
+  questionId String
+  createdAt  DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, questionId])
+  @@index([userId, createdAt])
+}
+
+model UserProgress {
+  id            String         @id @default(cuid())
+  userId        String
+  lessonId      String
+  status        ProgressStatus @default(IN_PROGRESS)
+  bestScore     Int            @default(0)
+  attemptsCount Int            @default(0)
+  updatedAt     DateTime       @updatedAt
+  createdAt     DateTime       @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@index([userId, status])
+}
+
+model Company {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  name         String
+  initials     String
+  overview     String
+  website      String?
+  headquarters String?
+  founded      String?
+  parent       String?
+  mainBusiness String?
+  industries   String?
+  technology   String?
+  platforms    String?
+  careersUrl   String?
+  logoSource   String?
+  logoStatus   String   @default("Official logo not supplied; initials fallback in use.")
+  sourceNote   String
+  verifiedAt   DateTime
+  topicSlugs   String[] @default([])
+  order        Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([order])
+}
+
+model ImportSource {
+  id               String           @id @default(cuid())
+  filename         String
+  relativePath     String
+  checksum         String           @unique
+  pageCount        Int
+  extractionStatus ExtractionStatus
+  licensingNote    String
+  importStatus     String           @default("registered")
+  lastImportedAt   DateTime?
+  createdAt        DateTime         @default(now())
+
+  jobs       ImportJob[]
+  rawPages   RawPage[]
+  candidates CandidateQuestion[]
+}
+
+model ImportJob {
+  id             String       @id @default(cuid())
+  sourceId       String
+  status         ImportStatus @default(QUEUED)
+  warnings       Json
+  startedAt      DateTime     @default(now())
+  finishedAt     DateTime?
+  processedPages Int          @default(0)
+  candidateCount Int          @default(0)
+  approvedCount  Int          @default(0)
+  skippedCount   Int          @default(0)
+  createdById    String?
+
+  source    ImportSource       @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+  createdBy User?              @relation(fields: [createdById], references: [id], onDelete: SetNull)
+  candidates CandidateQuestion[]
+
+  @@index([status])
+  @@index([startedAt])
+}
+
+model RawPage {
+  id         String   @id @default(cuid())
+  sourceId   String
+  pageNumber Int
+  rawText    String
+  createdAt  DateTime @default(now())
+
+  source ImportSource @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+
+  @@unique([sourceId, pageNumber])
+}
+
+model CandidateQuestion {
+  id           String   @id @default(cuid())
+  jobId        String
+  sourceId     String
+  sourcePage   Int
+  sourceKey    String
+  stem         String
+  options      Json
+  correctLabel String?
+  explanation  String?
+  status       String   @default("needs_review")
+  warnings     Json
+  fingerprint  String?
+  questionId   String?
+  createdAt    DateTime @default(now())
+
+  job      ImportJob    @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  source   ImportSource @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+  question Question?    @relation(fields: [questionId], references: [id], onDelete: SetNull)
+
+  @@unique([jobId, sourceKey])
+}
+
+model QuestionFlag {
+  id         String            @id @default(cuid())
+  userId     String
+  questionId String
+  note       String
+  status     QuestionFlagStatus @default(OPEN)
+  createdAt  DateTime          @default(now())
+  resolvedAt DateTime?
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@index([status, createdAt])
+}
+
+model AdminAuditLog {
+  id        String   @id @default(cuid())
+  actorId   String?
+  action    String
+  target    String
+  summary   String
+  createdAt DateTime @default(now())
+
+  actor User? @relation(fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([createdAt])
+  @@index([actorId])
+}
+
+model ResourceChecklistProgress {
+  id          String   @id @default(cuid())
+  userId      String
+  itemKey     String
+  completedAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, itemKey])
+  @@index([userId])
+}

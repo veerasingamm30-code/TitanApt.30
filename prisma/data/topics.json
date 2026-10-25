@@ -1,0 +1,227 @@
+[
+  {
+    "name": "Number System",
+    "slug": "number-system",
+    "subject": "QUANTITATIVE",
+    "group": "Arithmetic",
+    "order": 1,
+    "description": "Divisibility, remainders, factors, multiples, LCM and HCF.",
+    "sourceNote": "Chapter 1 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Percentages",
+    "slug": "percentages",
+    "subject": "QUANTITATIVE",
+    "group": "Arithmetic",
+    "order": 2,
+    "description": "Percentage change, successive change, comparison and application problems.",
+    "sourceNote": "Chapter 2 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Profit and Loss",
+    "slug": "profit-and-loss",
+    "subject": "QUANTITATIVE",
+    "group": "Commercial Arithmetic",
+    "order": 3,
+    "description": "Cost price, selling price, mark-up, discount and profit percentage.",
+    "sourceNote": "Chapter 3 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Ratio and Proportion",
+    "slug": "ratio-and-proportion",
+    "subject": "QUANTITATIVE",
+    "group": "Arithmetic",
+    "order": 4,
+    "description": "Equivalent ratios, sharing amounts, partnerships and proportional change.",
+    "sourceNote": "Chapter 4 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Average",
+    "slug": "average",
+    "subject": "QUANTITATIVE",
+    "group": "Arithmetic",
+    "order": 5,
+    "description": "Mean, weighted mean, replacement effects and missing values.",
+    "sourceNote": "Chapter 5 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Simple and Compound Interest",
+    "slug": "simple-and-compound-interest",
+    "subject": "QUANTITATIVE",
+    "group": "Commercial Arithmetic",
+    "order": 6,
+    "description": "Simple interest, compound interest, growth factors and instalments.",
+    "sourceNote": "Chapter 6 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Time and Work",
+    "slug": "time-and-work",
+    "subject": "QUANTITATIVE",
+    "group": "Arithmetic",
+    "order": 7,
+    "description": "Work rates, combined effort, efficiency and pipes and cisterns.",
+    "sourceNote": "Chapter 7 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Time, Speed and Distance",
+    "slug": "time-speed-distance",
+    "subject": "QUANTITATIVE",
+    "group": "Arithmetic",
+    "order": 8,
+    "description": "Speed conversion, relative motion, trains, boats and average speed.",
+    "sourceNote": "Chapter 8 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Mixtures and Alligation",
+    "slug": "mixtures-alligation",
+    "subject": "QUANTITATIVE",
+    "group": "Commercial Arithmetic",
+    "order": 9,
+    "description": "Mixing values, weighted averages, replacement and concentration.",
+    "sourceNote": "Chapter 9 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Algebra",
+    "slug": "algebra",
+    "subject": "QUANTITATIVE",
+    "group": "Algebra",
+    "order": 10,
+    "description": "Linear and quadratic equations, identities and algebraic manipulation.",
+    "sourceNote": "Chapter 10 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Progressions",
+    "slug": "progressions",
+    "subject": "QUANTITATIVE",
+    "group": "Algebra",
+    "order": 11,
+    "description": "Arithmetic and geometric progressions, series sums and term formulas.",
+    "sourceNote": "Chapter 11 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Probability",
+    "slug": "probability",
+    "subject": "QUANTITATIVE",
+    "group": "Counting and Probability",
+    "order": 12,
+    "description": "Sample spaces, independent events, conditional probability and complements.",
+    "sourceNote": "Chapter 12 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Permutation and Combination",
+    "slug": "permutation-and-combination",
+    "subject": "QUANTITATIVE",
+    "group": "Counting and Probability",
+    "order": 13,
+    "description": "Arrangements, selections, restrictions and counting shortcuts.",
+    "sourceNote": "Chapter 13 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Geometry and Mensuration",
+    "slug": "geometry-and-mensuration",
+    "subject": "QUANTITATIVE",
+    "group": "Geometry",
+    "order": 14,
+    "description": "Angles, triangles, circles, area, surface area and volume.",
+    "sourceNote": "Chapter 14 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Data Interpretation",
+    "slug": "data-interpretation",
+    "subject": "DATA_INTERPRETATION",
+    "group": "Data Skills",
+    "order": 15,
+    "description": "Tables, charts, comparisons, percentage change and data approximations.",
+    "sourceNote": "Chapter 15 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Number Series",
+    "slug": "number-series",
+    "subject": "LOGICAL",
+    "group": "Series and Coding",
+    "order": 16,
+    "description": "Number, letter and mixed series using differences, ratios and alternation.",
+    "sourceNote": "Chapter 16 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Coding and Decoding",
+    "slug": "coding-and-decoding",
+    "subject": "LOGICAL",
+    "group": "Series and Coding",
+    "order": 17,
+    "description": "Letter shifts, positional values, word codes and symbol substitution.",
+    "sourceNote": "Chapter 17 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Blood Relations",
+    "slug": "blood-relations",
+    "subject": "LOGICAL",
+    "group": "Relational Reasoning",
+    "order": 18,
+    "description": "Family trees, generation gaps, gender and relationship shortcuts.",
+    "sourceNote": "Chapter 18 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Direction Sense",
+    "slug": "direction-sense",
+    "subject": "LOGICAL",
+    "group": "Relational Reasoning",
+    "order": 19,
+    "description": "Compass movement, turns, shortest distance and displacement.",
+    "sourceNote": "Chapter 19 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Seating Arrangement",
+    "slug": "seating-arrangement",
+    "subject": "LOGICAL",
+    "group": "Arrangement and Logic",
+    "order": 20,
+    "description": "Linear and circular arrangements with positional constraints.",
+    "sourceNote": "Chapter 20 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Syllogism",
+    "slug": "syllogism",
+    "subject": "LOGICAL",
+    "group": "Arrangement and Logic",
+    "order": 21,
+    "description": "Statements, Venn diagrams and valid conclusions.",
+    "sourceNote": "Chapter 21 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Statement and Conclusion",
+    "slug": "statement-and-conclusion",
+    "subject": "LOGICAL",
+    "group": "Arrangement and Logic",
+    "order": 22,
+    "description": "Assumptions, inferences, strong arguments and conclusion validity.",
+    "sourceNote": "Chapter 22 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Analogy",
+    "slug": "analogy",
+    "subject": "LOGICAL",
+    "group": "Relational Reasoning",
+    "order": 23,
+    "description": "Word, number and symbol analogies using consistent relationships.",
+    "sourceNote": "Chapter 23 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Grammar and Usage",
+    "slug": "grammar-and-usage",
+    "subject": "VERBAL",
+    "group": "Language",
+    "order": 24,
+    "description": "Sentence correction, agreement, tense, prepositions and word usage.",
+    "sourceNote": "Chapter 24 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  },
+  {
+    "name": "Vocabulary",
+    "slug": "vocabulary",
+    "subject": "VERBAL",
+    "group": "Language",
+    "order": 25,
+    "description": "Synonyms, antonyms, context clues and commonly confused words.",
+    "sourceNote": "Chapter 25 of TitanApt_10000.pdf; question sample verified against the uploaded key."
+  }
+]

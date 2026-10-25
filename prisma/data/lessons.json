@@ -1,0 +1,2059 @@
+[
+    {
+        "topicSlug":  "number-system",
+        "slug":  "number-system-foundations",
+        "title":  "Divisibility, factors and remainders",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Use divisibility tests, remainders, HCF and LCM to solve number-system questions without long division.",
+        "explanation":  "Every integer can be written as divisor x quotient + remainder, where 0 \u003c= remainder \u003c divisor. Divisibility tests are shortcuts for checking whether the remainder is zero. For two positive integers, HCF is the largest common factor and LCM is the smallest common multiple; their product equals the product of the numbers.",
+        "analogy":  "Think of packing items into equal boxes. The number of full boxes is the quotient, and the unpacked items are the remainder. HCF is the largest box size that fits both piles exactly; LCM is the first pile size both box patterns can reach together.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Remainder after division",
+                                   "problem":  "Find the remainder when 100 is divided by 3.",
+                                   "steps":  [
+                                                 "Find the largest multiple of 3 below 100: 3 x 33 = 99.",
+                                                 "Subtract: 100 - 99 = 1.",
+                                                 "Check that 1 is less than the divisor, 3."
+                                             ],
+                                   "answer":  "Remainder = 1."
+                               },
+                               {
+                                   "title":  "HCF and LCM together",
+                                   "problem":  "Find the HCF and LCM of 36 and 60.",
+                                   "steps":  [
+                                                 "Prime factors: 36 = 2^2 x 3^2 and 60 = 2^2 x 3 x 5.",
+                                                 "HCF takes the lowest power of each common prime: 2^2 x 3 = 12.",
+                                                 "LCM takes the highest power of every prime: 2^2 x 3^2 x 5 = 180.",
+                                                 "Check: 12 x 180 = 36 x 60."
+                                             ],
+                                   "answer":  "HCF = 12, LCM = 180."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Divisibility by 3 or 9",
+                         "detail":  "Add the digits. The number is divisible by 3 or 9 when that digit sum is divisible by 3 or 9."
+                     },
+                     {
+                         "title":  "Divisibility by 4 or 8",
+                         "detail":  "Check the last two digits for 4 and the last three digits for 8."
+                     },
+                     {
+                         "title":  "HCF x LCM",
+                         "detail":  "For two positive integers a and b, HCF(a,b) x LCM(a,b) = a x b."
+                     },
+                     {
+                         "title":  "Remainder bound",
+                         "detail":  "Always check 0 \u003c= remainder \u003c divisor before selecting an answer."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Using the quotient as the remainder.",
+                             "fix":  "The remainder is what is left after removing full groups, not the number of groups."
+                         },
+                         {
+                             "mistake":  "Taking the highest power of every prime for HCF.",
+                             "fix":  "HCF uses the lowest common powers; LCM uses the highest powers."
+                         },
+                         {
+                             "mistake":  "Ignoring the digit sum test for 9 when checking 18.",
+                             "fix":  "For composite divisors, test every factor, not just one of them."
+                         }
+                     ],
+        "memoryTip":  "Remainder: multiply the full groups, then subtract. HCF is the shared smallest-power recipe; LCM is the complete highest-power recipe.",
+        "practice":  [
+                         {
+                             "prompt":  "What is the remainder when 257 is divided by 5?",
+                             "answer":  "2, because the last digit gives a remainder of 2 when divided by 5."
+                         },
+                         {
+                             "prompt":  "Find the LCM of 12 and 18.",
+                             "answer":  "36."
+                         },
+                         {
+                             "prompt":  "Is 3,141 divisible by 9?",
+                             "answer":  "Yes. The digit sum is 3 + 1 + 4 + 1 = 9, which is divisible by 9."
+                         }
+                     ],
+        "sourceRef":  "Chapter 1 (Number System) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "percentages",
+        "slug":  "percentage-change-and-applications",
+        "title":  "Percentage change without confusion",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Convert percentages into multipliers and solve increase, decrease and successive-change problems reliably.",
+        "explanation":  "A percentage is a fraction with denominator 100. An increase of r% multiplies by (1 + r/100); a decrease of r% multiplies by (1 - r/100). Successive changes multiply their factors in order. Reverse questions divide by the multiplier instead of subtracting a percentage from the final value.",
+        "analogy":  "A multiplier is a gear change. Two gear changes in a row multiply, so a 20% rise followed by a 10% fall is not a 10% rise; it is 1.20 x 0.90 = 1.08, an 8% rise.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Successive change",
+                                   "problem":  "A price rises by 20% and then falls by 10%. What is the net change?",
+                                   "steps":  [
+                                                 "Convert to multipliers: 1.20 and 0.90.",
+                                                 "Multiply: 1.20 x 0.90 = 1.08.",
+                                                 "Subtract 1 and convert: 0.08 = 8%."
+                                             ],
+                                   "answer":  "A net increase of 8%."
+                               },
+                               {
+                                   "title":  "Reverse percentage",
+                                   "problem":  "After a 25% discount, a bag costs 600. What was the marked price?",
+                                   "steps":  [
+                                                 "A 25% discount leaves 75% of the marked price.",
+                                                 "Let marked price be M: 0.75M = 600.",
+                                                 "M = 600 / 0.75 = 800."
+                                             ],
+                                   "answer":  "The marked price was 800."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Increase factor",
+                         "detail":  "New value = old value x (1 + rate/100)."
+                     },
+                     {
+                         "title":  "Decrease factor",
+                         "detail":  "New value = old value x (1 - rate/100)."
+                     },
+                     {
+                         "title":  "Successive changes",
+                         "detail":  "Multiply the factors; never add the percentages directly."
+                     },
+                     {
+                         "title":  "Percentage points",
+                         "detail":  "A change from 20% to 25% is 5 percentage points but a 25% relative increase."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Adding successive percentage changes.",
+                             "fix":  "Multiply the growth factors instead."
+                         },
+                         {
+                             "mistake":  "Taking a reverse percentage of the final value.",
+                             "fix":  "Divide by the factor that produced the final value."
+                         },
+                         {
+                             "mistake":  "Confusing percentage points with percent change.",
+                             "fix":  "State the base explicitly before calculating."
+                         }
+                     ],
+        "memoryTip":  "Turn every percentage into a multiplier first. Multiply forward; divide backward.",
+        "practice":  [
+                         {
+                             "prompt":  "What is 15% of 240?",
+                             "answer":  "36."
+                         },
+                         {
+                             "prompt":  "A salary rises 10% and later falls 10%. Is it back to the original?",
+                             "answer":  "No. 1.10 x 0.90 = 0.99, so it is 1% lower."
+                         },
+                         {
+                             "prompt":  "40 is what percent of 160?",
+                             "answer":  "25%."
+                         }
+                     ],
+        "sourceRef":  "Chapter 2 (Percentages) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "profit-and-loss",
+        "slug":  "profit-loss-discount",
+        "title":  "Profit, loss and discount in one framework",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Relate cost price, marked price, selling price and discount, and compute profit percentages from the correct base.",
+        "explanation":  "Profit equals selling price minus cost price; loss is the reverse. Profit percentage is normally calculated on cost price, while discount is calculated on marked price. A useful chain is: marked price -\u003e discount -\u003e selling price -\u003e profit or loss against cost price.",
+        "analogy":  "The marked price is the label, the discount is the price cut, and the selling price is what actually reaches the till. Profit compares that till amount with what the shop paid.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Profit percentage",
+                                   "problem":  "An item costs 400 and sells for 500. Find the profit percentage.",
+                                   "steps":  [
+                                                 "Profit = 500 - 400 = 100.",
+                                                 "Profit percentage = 100 / 400 x 100%.",
+                                                 "Simplify: 25%."
+                                             ],
+                                   "answer":  "25% profit."
+                               },
+                               {
+                                   "title":  "Discount then profit",
+                                   "problem":  "Marked price is 800. A 20% discount is allowed and the cost price is 500. Find the profit percentage.",
+                                   "steps":  [
+                                                 "Selling price = 800 x 0.80 = 640.",
+                                                 "Profit = 640 - 500 = 140.",
+                                                 "Profit percentage = 140 / 500 x 100% = 28%."
+                                             ],
+                                   "answer":  "28% profit."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Profit and loss",
+                         "detail":  "Profit = SP - CP; loss = CP - SP."
+                     },
+                     {
+                         "title":  "Profit percentage",
+                         "detail":  "Profit% = (Profit / CP) x 100 unless the question explicitly says otherwise."
+                     },
+                     {
+                         "title":  "Discount",
+                         "detail":  "SP = MP x (1 - discount%/100); discount is always on the marked price."
+                     },
+                     {
+                         "title":  "Successive discounts",
+                         "detail":  "Multiply the remaining-price factors, just like successive percentage changes."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Calculating profit percentage on selling price.",
+                             "fix":  "Use cost price as the standard base unless told otherwise."
+                         },
+                         {
+                             "mistake":  "Taking discount on cost price.",
+                             "fix":  "Discount is a reduction from marked price."
+                         },
+                         {
+                             "mistake":  "Adding two successive discounts.",
+                             "fix":  "Use 0.90 x 0.80, not 0.70, for 10% then 20% off."
+                         }
+                     ],
+        "memoryTip":  "Cost price is the profit base; marked price is the discount base. Discount first, profit second.",
+        "practice":  [
+                         {
+                             "prompt":  "CP = 250, SP = 300. Find profit%.",
+                             "answer":  "20%."
+                         },
+                         {
+                             "prompt":  "A 10% discount on 1,200 gives what selling price?",
+                             "answer":  "1,080."
+                         },
+                         {
+                             "prompt":  "Selling at 720 gives a 10% loss. Find CP.",
+                             "answer":  "800, because 0.90 x CP = 720."
+                         }
+                     ],
+        "sourceRef":  "Chapter 3 (Profit and Loss) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "ratio-and-proportion",
+        "slug":  "ratio-proportion-sharing",
+        "title":  "Ratios as recipes and shares",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Simplify ratios, divide quantities in a given ratio and translate proportional statements into equations.",
+        "explanation":  "A ratio compares parts of the same whole. If a:b = 3:5, write the parts as 3k and 5k for some positive k. To divide a total, add the ratio terms to get the number of parts, find one part, then multiply. A proportion a:b = c:d means ad = bc.",
+        "analogy":  "A ratio is a recipe. A 3:5 mixture means three cups of one ingredient for every five of the other; scaling the recipe changes k but not the taste.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Sharing a total",
+                                   "problem":  "Divide 64 in the ratio 3:5.",
+                                   "steps":  [
+                                                 "Total ratio parts = 3 + 5 = 8.",
+                                                 "One part = 64 / 8 = 8.",
+                                                 "Shares are 3 x 8 and 5 x 8."
+                                             ],
+                                   "answer":  "24 and 40."
+                               },
+                               {
+                                   "title":  "Three-part ratio",
+                                   "problem":  "Divide 500 in the ratio 2:3:5.",
+                                   "steps":  [
+                                                 "Total parts = 2 + 3 + 5 = 10.",
+                                                 "One part = 500 / 10 = 50.",
+                                                 "Shares are 100, 150 and 250.",
+                                                 "Check: 100 + 150 + 250 = 500."
+                                             ],
+                                   "answer":  "100, 150 and 250."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Scale factor",
+                         "detail":  "For a:b, write the quantities as ak and bk."
+                     },
+                     {
+                         "title":  "Division",
+                         "detail":  "One part = total / sum of ratio terms."
+                     },
+                     {
+                         "title":  "Proportion cross-product",
+                         "detail":  "a/b = c/d implies ad = bc."
+                     },
+                     {
+                         "title":  "Units first",
+                         "detail":  "Convert quantities to the same unit before forming a ratio."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Dividing the total by the number of ratio entries instead of their sum.",
+                             "fix":  "Use the sum of all ratio terms."
+                         },
+                         {
+                             "mistake":  "Writing 3:5 as three-fifths of the total for the first share.",
+                             "fix":  "The first share is 3/8 of the total when the ratio is 3:5."
+                         },
+                         {
+                             "mistake":  "Mixing units before simplifying.",
+                             "fix":  "Convert to a common unit, then simplify."
+                         }
+                     ],
+        "memoryTip":  "Turn ratio terms into k-parts. Total parts is the denominator; one part is the unit share.",
+        "practice":  [
+                         {
+                             "prompt":  "Simplify 18:24.",
+                             "answer":  "3:4."
+                         },
+                         {
+                             "prompt":  "Divide 90 in 4:5.",
+                             "answer":  "40 and 50."
+                         },
+                         {
+                             "prompt":  "If 2 pencils cost 30, what do 7 cost at the same rate?",
+                             "answer":  "105."
+                         }
+                     ],
+        "sourceRef":  "Chapter 4 (Ratio and Proportion) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "average",
+        "slug":  "averages-and-weighted-means",
+        "title":  "Averages: sum first, then adjust",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Use the sum-average relationship for replacement, missing-value and weighted-average questions.",
+        "explanation":  "Average = sum of values / number of values, so sum = average x number. When a value is replaced, the total changes by the difference between the new and old value. A weighted average uses each group\u0027s size as its weight and is the same as combining all totals and dividing by the combined count.",
+        "analogy":  "An average is an equal-sharing level. If one person brings 10 extra points into a group, that extra is spread equally across everyone, raising the average by 10 divided by the group size.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Replacement effect",
+                                   "problem":  "The average of five numbers is 20. One number, 18, is replaced by 28. Find the new average.",
+                                   "steps":  [
+                                                 "Original sum = 5 x 20 = 100.",
+                                                 "The total increases by 28 - 18 = 10.",
+                                                 "New sum = 110; new average = 110 / 5."
+                                             ],
+                                   "answer":  "22."
+                               },
+                               {
+                                   "title":  "Weighted average",
+                                   "problem":  "Two tests score 80 and three tests score 90. Find the overall average.",
+                                   "steps":  [
+                                                 "Total points = 2 x 80 + 3 x 90 = 160 + 270 = 430.",
+                                                 "Total tests = 5.",
+                                                 "Average = 430 / 5."
+                                             ],
+                                   "answer":  "86."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Sum relationship",
+                         "detail":  "Sum = average x count."
+                     },
+                     {
+                         "title":  "Replacement",
+                         "detail":  "New average = old average + (new value - old value) / count."
+                     },
+                     {
+                         "title":  "Weighted mean",
+                         "detail":  "Use (n1x1 + n2x2 + ...) / (n1 + n2 + ...)."
+                     },
+                     {
+                         "title":  "Adding a value",
+                         "detail":  "New average = (old sum + new value) / (old count + 1)."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Averaging two averages equally when group sizes differ.",
+                             "fix":  "Weight each average by its group count."
+                         },
+                         {
+                             "mistake":  "Adding the replacement difference without dividing by the count.",
+                             "fix":  "The average shifts by the total change divided by the number of values."
+                         },
+                         {
+                             "mistake":  "Forgetting that a new value also increases the count.",
+                             "fix":  "Update both sum and count."
+                         }
+                     ],
+        "memoryTip":  "Average is a fair share. Convert to totals before changing anything, then redistribute.",
+        "practice":  [
+                         {
+                             "prompt":  "The average of 4 numbers is 15. Find their sum.",
+                             "answer":  "60."
+                         },
+                         {
+                             "prompt":  "A 30-student class averages 70; a 20-student class averages 80. Find the combined average.",
+                             "answer":  "74."
+                         },
+                         {
+                             "prompt":  "Average of 10 values is 12. If one value 20 is removed, find the new average.",
+                             "answer":  "100/9, approximately 11.11."
+                         }
+                     ],
+        "sourceRef":  "Chapter 5 (Average) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "simple-and-compound-interest",
+        "slug":  "interest-growth-factors",
+        "title":  "Simple versus compound interest",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Distinguish linear simple interest from multiplicative compound growth and apply both formulas.",
+        "explanation":  "Simple interest is charged only on the original principal: SI = P x R x T / 100. Compound interest charges interest on the accumulated amount, so it grows by a factor each period: A = P(1 + R/100)^T, and CI = A - P. For the same positive rate and more than one period, compound interest exceeds simple interest.",
+        "analogy":  "Simple interest is a straight staircase: the same height is added each year. Compound interest is a snowball: each year\u0027s interest becomes part of the next year\u0027s base.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Simple interest",
+                                   "problem":  "Find the simple interest on 5,000 at 10% per annum for 2 years.",
+                                   "steps":  [
+                                                 "Use SI = P x R x T / 100.",
+                                                 "SI = 5,000 x 10 x 2 / 100.",
+                                                 "SI = 1,000."
+                                             ],
+                                   "answer":  "Simple interest = 1,000."
+                               },
+                               {
+                                   "title":  "Compound interest",
+                                   "problem":  "Find the compound interest on 5,000 at 10% per annum for 2 years.",
+                                   "steps":  [
+                                                 "Amount = 5,000 x (1.10)^2.",
+                                                 "1.10^2 = 1.21, so amount = 6,050.",
+                                                 "CI = 6,050 - 5,000 = 1,050."
+                                             ],
+                                   "answer":  "Compound interest = 1,050."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Simple interest",
+                         "detail":  "SI = P x R x T / 100."
+                     },
+                     {
+                         "title":  "Compound amount",
+                         "detail":  "A = P(1 + R/100)^T for annual compounding."
+                     },
+                     {
+                         "title":  "More frequent compounding",
+                         "detail":  "Divide the annual rate by the number of periods and multiply the number of years by that frequency."
+                     },
+                     {
+                         "title":  "Difference",
+                         "detail":  "For two years, CI - SI = P(R/100)^2."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Applying the simple-interest formula for multi-year compound growth.",
+                             "fix":  "Use repeated multipliers for compound interest."
+                         },
+                         {
+                             "mistake":  "Treating the compound amount as the interest.",
+                             "fix":  "CI = amount - principal."
+                         },
+                         {
+                             "mistake":  "Using the annual rate for a half-yearly period without adjusting.",
+                             "fix":  "Use rate/2 per half-year and twice as many periods."
+                         }
+                     ],
+        "memoryTip":  "SI adds the same amount; CI multiplies the base. Amount first, then subtract principal.",
+        "practice":  [
+                         {
+                             "prompt":  "Find SI on 8,000 at 5% for 3 years.",
+                             "answer":  "1,200."
+                         },
+                         {
+                             "prompt":  "Find the amount on 10,000 at 10% compound interest for 2 years.",
+                             "answer":  "12,100."
+                         },
+                         {
+                             "prompt":  "Which is larger after 3 years: SI or CI at the same positive rate?",
+                             "answer":  "Compound interest."
+                         }
+                     ],
+        "sourceRef":  "Chapter 6 (Simple and Compound Interest) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "time-and-work",
+        "slug":  "work-rates-and-pipes",
+        "title":  "Work rates add, times do not",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Solve combined-work and pipes-and-cisterns problems by adding rates rather than adding days.",
+        "explanation":  "If a person completes a job in d days, their rate is 1/d of the job per day. Working together, rates add: combined rate = 1/a + 1/b, and combined time is the reciprocal. If a pipe fills at rate f and a drain empties at rate e, the net filling rate is f - e.",
+        "analogy":  "Rates are speeds of work. Two workers are like two taps filling the same tank: add litres per hour, not the hours printed on each tap.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Two workers together",
+                                   "problem":  "A can finish a job in 12 days and B in 18 days. How long will they take together?",
+                                   "steps":  [
+                                                 "Rates: A = 1/12, B = 1/18.",
+                                                 "Combined rate = 3/36 + 2/36 = 5/36 job per day.",
+                                                 "Time = 36/5 days."
+                                             ],
+                                   "answer":  "7.2 days."
+                               },
+                               {
+                                   "title":  "Fill and drain",
+                                   "problem":  "A pipe fills a tank in 6 hours; a drain empties it in 9 hours. How long to fill the tank with both open?",
+                                   "steps":  [
+                                                 "Fill rate = 1/6; drain rate = 1/9.",
+                                                 "Net rate = 3/18 - 2/18 = 1/18 tank per hour.",
+                                                 "Time = 18 hours."
+                                             ],
+                                   "answer":  "18 hours."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Rate from time",
+                         "detail":  "Rate = 1 / time for one complete job."
+                     },
+                     {
+                         "title":  "Combined rate",
+                         "detail":  "Add rates for work done in the same direction; subtract opposing rates."
+                     },
+                     {
+                         "title":  "Combined time",
+                         "detail":  "Time = 1 / combined rate."
+                     },
+                     {
+                         "title":  "Efficiency",
+                         "detail":  "If A is twice as efficient as B, A\u0027s rate is twice B\u0027s rate and A takes half the time."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Averaging the two completion times.",
+                             "fix":  "Add the work rates and take the reciprocal."
+                         },
+                         {
+                             "mistake":  "Adding a drain rate instead of subtracting it.",
+                             "fix":  "Opposing work reduces the net rate."
+                         },
+                         {
+                             "mistake":  "Forgetting to convert minutes and hours to one unit.",
+                             "fix":  "Choose one time unit before calculating rates."
+                         }
+                     ],
+        "memoryTip":  "Turn every time into a per-day rate. Add rates, then flip back to time.",
+        "practice":  [
+                         {
+                             "prompt":  "A does a job in 10 days and B in 15. Find their combined time.",
+                             "answer":  "6 days."
+                         },
+                         {
+                             "prompt":  "A pipe fills in 4 hours; a leak empties in 12. Find the net fill time.",
+                             "answer":  "6 hours."
+                         },
+                         {
+                             "prompt":  "If A is three times as fast as B and B takes 24 days, how long does A take?",
+                             "answer":  "8 days."
+                         }
+                     ],
+        "sourceRef":  "Chapter 7 (Time and Work) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "time-speed-distance",
+        "slug":  "speed-distance-relative-motion",
+        "title":  "Speed, distance and relative motion",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Convert speed units and solve train, boat and relative-speed problems with consistent units.",
+        "explanation":  "Distance = speed x time. To convert km/h to m/s, multiply by 5/18; to convert m/s to km/h, multiply by 18/5. For objects moving in opposite directions, relative speed is the sum; for the same direction, it is the difference. Average speed for equal distances is the harmonic-style 2ab/(a+b), not the arithmetic mean.",
+        "analogy":  "Relative speed is how fast the gap changes. Two trains approaching each other close the gap at the sum of their speeds; chasing trains close it at the difference.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Train crossing a pole",
+                                   "problem":  "A 300 m train travels at 54 km/h. How long does it take to pass a pole?",
+                                   "steps":  [
+                                                 "Convert speed: 54 x 5/18 = 15 m/s.",
+                                                 "The train must cover its own length: 300 m.",
+                                                 "Time = 300 / 15 = 20 seconds."
+                                             ],
+                                   "answer":  "20 seconds."
+                               },
+                               {
+                                   "title":  "Opposite directions",
+                                   "problem":  "Two 200 m trains move toward each other at 10 m/s and 15 m/s. How long until they completely pass?",
+                                   "steps":  [
+                                                 "Relative speed = 10 + 15 = 25 m/s.",
+                                                 "Combined length to clear = 200 + 200 = 400 m.",
+                                                 "Time = 400 / 25 = 16 seconds."
+                                             ],
+                                   "answer":  "16 seconds."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Core relation",
+                         "detail":  "Distance = speed x time."
+                     },
+                     {
+                         "title":  "Unit conversion",
+                         "detail":  "km/h to m/s: multiply by 5/18. m/s to km/h: multiply by 18/5."
+                     },
+                     {
+                         "title":  "Relative speed",
+                         "detail":  "Opposite directions: add speeds. Same direction: subtract speeds."
+                     },
+                     {
+                         "title":  "Train crossing",
+                         "detail":  "Pole: cover train length. Platform: cover train + platform length."
+                     },
+                     {
+                         "title":  "Boats",
+                         "detail":  "Downstream speed = boat + current; upstream = boat - current."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Mixing km/h with metres.",
+                             "fix":  "Convert speed and distance to matching units first."
+                         },
+                         {
+                             "mistake":  "Adding speeds when one object chases another.",
+                             "fix":  "Use the difference for same-direction motion."
+                         },
+                         {
+                             "mistake":  "Using train length alone when crossing a platform.",
+                             "fix":  "Add the platform length to the train length."
+                         }
+                     ],
+        "memoryTip":  "Opposite: add. Same direction: subtract. Convert before you calculate.",
+        "practice":  [
+                         {
+                             "prompt":  "Convert 72 km/h to m/s.",
+                             "answer":  "20 m/s."
+                         },
+                         {
+                             "prompt":  "A car covers 150 km in 3 hours. Find its speed.",
+                             "answer":  "50 km/h."
+                         },
+                         {
+                             "prompt":  "Boat speed 12 km/h, current 3 km/h. Find upstream speed.",
+                             "answer":  "9 km/h."
+                         }
+                     ],
+        "sourceRef":  "Chapter 8 (Time, Speed and Distance) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "mixtures-alligation",
+        "slug":  "mixtures-alligation-replacement",
+        "title":  "Mixtures, alligation and replacement",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Use alligation for mixing values and track quantities when a mixture is partly replaced.",
+        "explanation":  "Alligation finds the ratio in which two ingredients of different values must be mixed to obtain a target value. The ratio is the cross-difference between the target and each ingredient value. For a mixture, total quantity times concentration gives the amount of each component. Replacement problems are easiest when you track the amount of one component after each removal and refill.",
+        "analogy":  "Alligation is balancing a see-saw around the target value. The ingredient farther from the target must be used in a smaller quantity.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Alligation ratio",
+                                   "problem":  "In what ratio should rice at 60 per kg and rice at 80 per kg be mixed to get a mixture worth 72 per kg?",
+                                   "steps":  [
+                                                 "Differences from 72: 80 - 72 = 8 and 72 - 60 = 12.",
+                                                 "Ratio of cheaper to dearer = 12:8.",
+                                                 "Simplify: 3:2."
+                                             ],
+                                   "answer":  "Cheaper:dearer = 3:2."
+                               },
+                               {
+                                   "title":  "Adding water",
+                                   "problem":  "A 20 L mixture has milk and water in 3:1. How much water must be added to make the ratio 5:3?",
+                                   "steps":  [
+                                                 "Initial milk = 15 L, water = 5 L.",
+                                                 "Milk stays 15 L. For 5:3, 15/water = 5/3, so water = 9 L.",
+                                                 "Water to add = 9 - 5 = 4 L."
+                                             ],
+                                   "answer":  "4 L of water."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Alligation",
+                         "detail":  "Ratio of quantities = (higher value - mean) : (mean - lower value), with the cheaper ingredient first."
+                     },
+                     {
+                         "title":  "Component amount",
+                         "detail":  "Amount of component = total mixture x component fraction."
+                     },
+                     {
+                         "title":  "Replacement",
+                         "detail":  "Track the unchanged component or multiply the remaining fraction each time."
+                     },
+                     {
+                         "title":  "Adding pure component",
+                         "detail":  "Keep the unchanged component fixed and solve the new ratio."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Reversing the alligation differences.",
+                             "fix":  "Match each difference to the ingredient on the opposite side."
+                         },
+                         {
+                             "mistake":  "Changing both components when only water is added.",
+                             "fix":  "Milk stays fixed; only the water and total change."
+                         },
+                         {
+                             "mistake":  "Applying a replacement fraction to the whole mixture instead of the component.",
+                             "fix":  "Track one component\u0027s remaining amount explicitly."
+                         }
+                     ],
+        "memoryTip":  "Alligation is cross-differences around the target. In replacement, anchor the component that does not change.",
+        "practice":  [
+                         {
+                             "prompt":  "Mix tea at 200 and 260 per kg to average 230. Find the ratio.",
+                             "answer":  "1:1, because 230 is the midpoint."
+                         },
+                         {
+                             "prompt":  "A 30 L mixture is 40% milk. How much milk is present?",
+                             "answer":  "12 L."
+                         },
+                         {
+                             "prompt":  "Remove 10% of a solution twice. What fraction remains?",
+                             "answer":  "0.9 x 0.9 = 0.81, or 81%."
+                         }
+                     ],
+        "sourceRef":  "Chapter 9 (Mixtures and Alligation) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "algebra",
+        "slug":  "algebra-equations-identities",
+        "title":  "Equations and identities",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Solve linear and quadratic equations and use standard identities to simplify expressions.",
+        "explanation":  "Keep equations balanced by performing the same operation on both sides. A quadratic ax^2 + bx + c = 0 can be solved by factorisation or the quadratic formula. Identities such as (a+b)^2 = a^2 + 2ab + b^2 and a^2 - b^2 = (a-b)(a+b) let you substitute known sums and products without finding each variable.",
+        "analogy":  "An equation is a balanced scale. Whatever you do to one side, do to the other. Identities are pre-built tools that save you from rebuilding the same expression.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Linear equation",
+                                   "problem":  "Solve 3x + 5 = 20.",
+                                   "steps":  [
+                                                 "Subtract 5 from both sides: 3x = 15.",
+                                                 "Divide both sides by 3.",
+                                                 "x = 5."
+                                             ],
+                                   "answer":  "x = 5."
+                               },
+                               {
+                                   "title":  "Quadratic by factorisation",
+                                   "problem":  "Solve x^2 - 5x + 6 = 0.",
+                                   "steps":  [
+                                                 "Find two numbers with product 6 and sum -5: -2 and -3.",
+                                                 "Factor: (x - 2)(x - 3) = 0.",
+                                                 "Set each factor to zero."
+                                             ],
+                                   "answer":  "x = 2 or x = 3."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Balance rule",
+                         "detail":  "Apply the same operation to both sides of an equation."
+                     },
+                     {
+                         "title":  "Quadratic formula",
+                         "detail":  "x = [-b +/- sqrt(b^2 - 4ac)] / (2a)."
+                     },
+                     {
+                         "title":  "Square identities",
+                         "detail":  "(a+b)^2 = a^2 + 2ab + b^2 and (a-b)^2 = a^2 - 2ab + b^2."
+                     },
+                     {
+                         "title":  "Difference of squares",
+                         "detail":  "a^2 - b^2 = (a-b)(a+b)."
+                     },
+                     {
+                         "title":  "Reciprocal identity",
+                         "detail":  "If x + 1/x = k, then x^2 + 1/x^2 = k^2 - 2."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Cancelling terms across an addition.",
+                             "fix":  "Cancel factors of an entire side, not individual terms."
+                         },
+                         {
+                             "mistake":  "Forgetting both roots of a quadratic.",
+                             "fix":  "Set each factor or use the plus/minus in the formula."
+                         },
+                         {
+                             "mistake":  "Expanding (a+b)^2 as a^2 + b^2.",
+                             "fix":  "Include the middle term 2ab."
+                         }
+                     ],
+        "memoryTip":  "Balance, factor, substitute. Identities turn sums and products into shortcuts.",
+        "practice":  [
+                         {
+                             "prompt":  "Solve 2x - 7 = 9.",
+                             "answer":  "x = 8."
+                         },
+                         {
+                             "prompt":  "Factor x^2 - 9.",
+                             "answer":  "(x - 3)(x + 3)."
+                         },
+                         {
+                             "prompt":  "If x + 1/x = 4, find x^2 + 1/x^2.",
+                             "answer":  "14."
+                         }
+                     ],
+        "sourceRef":  "Chapter 10 (Algebra) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "progressions",
+        "slug":  "ap-gp-formulas",
+        "title":  "Arithmetic and geometric progressions",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Identify APs and GPs and use term, sum and common-difference or common-ratio formulas.",
+        "explanation":  "An arithmetic progression adds a constant difference d each step; a geometric progression multiplies by a constant ratio r. For an AP, the nth term is a + (n-1)d and the sum of n terms is n/2 [2a + (n-1)d]. For a GP, the nth term is ar^(n-1) and the sum of n terms is a(r^n - 1)/(r - 1) when r is not 1.",
+        "analogy":  "An AP is a staircase with equal steps. A GP is a bounce whose height keeps multiplying by the same fraction.",
+        "workedExamples":  [
+                               {
+                                   "title":  "AP term and sum",
+                                   "problem":  "For the AP 7, 11, 15, ..., find the 15th term and the sum of the first 15 terms.",
+                                   "steps":  [
+                                                 "a = 7, d = 4.",
+                                                 "15th term = 7 + 14 x 4 = 63.",
+                                                 "Sum = 15/2 [2 x 7 + 14 x 4] = 15/2 [14 + 56] = 525."
+                                             ],
+                                   "answer":  "15th term = 63; sum = 525."
+                               },
+                               {
+                                   "title":  "GP sum",
+                                   "problem":  "Find the sum of the first 5 terms of 3, 6, 12, ...",
+                                   "steps":  [
+                                                 "a = 3, r = 2, n = 5.",
+                                                 "Sum = 3(2^5 - 1)/(2 - 1).",
+                                                 "2^5 = 32, so sum = 3 x 31 = 93."
+                                             ],
+                                   "answer":  "93."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "AP nth term",
+                         "detail":  "a_n = a + (n - 1)d."
+                     },
+                     {
+                         "title":  "AP sum",
+                         "detail":  "S_n = n/2 [2a + (n - 1)d] = n/2 (first + last)."
+                     },
+                     {
+                         "title":  "GP nth term",
+                         "detail":  "a_n = a r^(n - 1)."
+                     },
+                     {
+                         "title":  "GP sum",
+                         "detail":  "S_n = a(r^n - 1)/(r - 1) for r not equal to 1."
+                     },
+                     {
+                         "title":  "Infinite GP",
+                         "detail":  "For |r| \u003c 1, S = a/(1 - r)."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Using r - 1 in the GP sum for r \u003e 1.",
+                             "fix":  "The formula is symmetric in sign; a(r^n - 1)/(r - 1) works, but check the sign carefully."
+                         },
+                         {
+                             "mistake":  "Counting n terms as n + 1 steps.",
+                             "fix":  "From the first term to the nth term there are n - 1 steps."
+                         },
+                         {
+                             "mistake":  "Assuming every sequence with a pattern is arithmetic.",
+                             "fix":  "Check whether differences or ratios are constant."
+                         }
+                     ],
+        "memoryTip":  "AP adds; GP multiplies. First term plus n-1 steps is the nth term.",
+        "practice":  [
+                         {
+                             "prompt":  "Find the 10th term of 5, 8, 11, ...",
+                             "answer":  "32."
+                         },
+                         {
+                             "prompt":  "Find the sum of the first 10 natural numbers.",
+                             "answer":  "55."
+                         },
+                         {
+                             "prompt":  "Find the sum of 1 + 1/2 + 1/4 + ... forever.",
+                             "answer":  "2."
+                         }
+                     ],
+        "sourceRef":  "Chapter 11 (Progressions) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "probability",
+        "slug":  "probability-basics",
+        "title":  "Probability: favourable over total",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Compute simple and complementary probabilities and handle independent events without double-counting.",
+        "explanation":  "For equally likely outcomes, probability = number of favourable outcomes / total outcomes. The complement rule says P(not A) = 1 - P(A). For independent events, P(A and B) = P(A) x P(B). For either event, use P(A or B) = P(A) + P(B) - P(A and B).",
+        "analogy":  "Probability measures the share of the outcome space that you care about. The complement is everything outside that share, so the two shares always add to one.",
+        "workedExamples":  [
+                               {
+                                   "title":  "One die",
+                                   "problem":  "A fair die is rolled. What is the probability of an even number?",
+                                   "steps":  [
+                                                 "Total outcomes = 6.",
+                                                 "Even outcomes: 2, 4, 6, so 3 favourable outcomes.",
+                                                 "Probability = 3/6 = 1/2."
+                                             ],
+                                   "answer":  "1/2."
+                               },
+                               {
+                                   "title":  "At least one head",
+                                   "problem":  "A fair coin is tossed twice. Find the probability of at least one head.",
+                                   "steps":  [
+                                                 "Total outcomes: HH, HT, TH, TT.",
+                                                 "The complement is TT, with probability 1/4.",
+                                                 "P(at least one head) = 1 - 1/4 = 3/4."
+                                             ],
+                                   "answer":  "3/4."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Basic probability",
+                         "detail":  "P(A) = favourable outcomes / total equally likely outcomes."
+                     },
+                     {
+                         "title":  "Range",
+                         "detail":  "Every probability lies between 0 and 1 inclusive."
+                     },
+                     {
+                         "title":  "Complement",
+                         "detail":  "P(not A) = 1 - P(A)."
+                     },
+                     {
+                         "title":  "Independent events",
+                         "detail":  "P(A and B) = P(A) x P(B)."
+                     },
+                     {
+                         "title":  "Either event",
+                         "detail":  "P(A or B) = P(A) + P(B) - P(A and B)."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Adding probabilities of independent events to get both happening.",
+                             "fix":  "Multiply for \u0027and\u0027 when events are independent."
+                         },
+                         {
+                             "mistake":  "Forgetting to subtract the overlap when using \u0027or\u0027.",
+                             "fix":  "Use inclusion-exclusion for non-mutually-exclusive events."
+                         },
+                         {
+                             "mistake":  "Counting outcomes that are not equally likely as if they were.",
+                             "fix":  "List the full equally likely sample space."
+                         }
+                     ],
+        "memoryTip":  "\u0027And\u0027 usually multiplies; \u0027or\u0027 adds and then removes the overlap. For \u0027at least one\u0027, try the complement.",
+        "practice":  [
+                         {
+                             "prompt":  "Probability of drawing a king from a standard deck?",
+                             "answer":  "4/52 = 1/13."
+                         },
+                         {
+                             "prompt":  "Probability of two heads on two fair coins?",
+                             "answer":  "1/4."
+                         },
+                         {
+                             "prompt":  "If P(A) = 0.3, find P(not A).",
+                             "answer":  "0.7."
+                         }
+                     ],
+        "sourceRef":  "Chapter 12 (Probability) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "permutation-and-combination",
+        "slug":  "counting-permutations-combinations",
+        "title":  "Arrange or select?",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Decide between permutations and combinations and count arrangements with repeated items.",
+        "explanation":  "A permutation counts ordered arrangements; a combination counts unordered selections. Use nPr = n!/(n-r)! when order matters and nCr = n!/[r!(n-r)!] when it does not. When some items are identical, divide the total factorial by the factorial of each repeated count.",
+        "analogy":  "Choosing a team is a combination: the same people form the same team in any order. Assigning them to president, secretary and treasurer is a permutation: order creates different outcomes.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Choose two from five",
+                                   "problem":  "In how many ways can two students be selected from five?",
+                                   "steps":  [
+                                                 "Order does not matter, so use combinations.",
+                                                 "5C2 = 5!/(2! x 3!) = 10."
+                                             ],
+                                   "answer":  "10 ways."
+                               },
+                               {
+                                   "title":  "Repeated letters",
+                                   "problem":  "How many distinct arrangements does the word LEVEL have?",
+                                   "steps":  [
+                                                 "Total letters = 5.",
+                                                 "L and E each repeat twice.",
+                                                 "Arrangements = 5!/(2! x 2!) = 120/4 = 30."
+                                             ],
+                                   "answer":  "30 arrangements."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Permutation",
+                         "detail":  "Order matters: nPr = n!/(n-r)!."
+                     },
+                     {
+                         "title":  "Combination",
+                         "detail":  "Order does not matter: nCr = n!/[r!(n-r)!]."
+                     },
+                     {
+                         "title":  "Repeated items",
+                         "detail":  "Divide by the factorial of each repeated group\u0027s count."
+                     },
+                     {
+                         "title":  "Complementary counting",
+                         "detail":  "For \u0027at least one\u0027, count the total and subtract the \u0027none\u0027 cases."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Using nCr when assigning distinct positions.",
+                             "fix":  "If the result changes when order changes, use nPr."
+                         },
+                         {
+                             "mistake":  "Forgetting to divide by repeated factorials.",
+                             "fix":  "Account for every repeated letter or identical item."
+                         },
+                         {
+                             "mistake":  "Multiplying choices that are not independent.",
+                             "fix":  "Check whether a previous choice removes options."
+                         }
+                     ],
+        "memoryTip":  "Permutation = position matters. Combination = committee. Repeated items divide.",
+        "practice":  [
+                         {
+                             "prompt":  "How many ways to arrange 4 distinct books?",
+                             "answer":  "24."
+                         },
+                         {
+                             "prompt":  "How many ways to choose 3 from 7?",
+                             "answer":  "35."
+                         },
+                         {
+                             "prompt":  "How many distinct arrangements of the letters in BANANA?",
+                             "answer":  "60, because 6!/(3! x 2!) = 60."
+                         }
+                     ],
+        "sourceRef":  "Chapter 13 (Permutation and Combination) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "geometry-and-mensuration",
+        "slug":  "geometry-area-volume",
+        "title":  "Geometry and mensuration essentials",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Apply angle, triangle, circle and solid formulas and keep units consistent.",
+        "explanation":  "The angles of a triangle sum to 180 degrees. Area of a triangle is 1/2 x base x height; for a right triangle, Pythagoras gives hypotenuse^2 = base^2 + height^2. Circle area is pi r^2 and circumference is 2 pi r. For solids, volume multiplies a base area by a height or depth; surface area counts all exposed faces.",
+        "analogy":  "Mensuration is filling a shape with unit squares or unit cubes. Area counts the squares; volume counts the cubes; perimeter and surface area count the boundary.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Right triangle",
+                                   "problem":  "A right triangle has legs 6 cm and 8 cm. Find its hypotenuse and area.",
+                                   "steps":  [
+                                                 "Hypotenuse = sqrt(6^2 + 8^2) = sqrt(100) = 10 cm.",
+                                                 "Area = 1/2 x 6 x 8 = 24 cm^2."
+                                             ],
+                                   "answer":  "Hypotenuse 10 cm; area 24 cm^2."
+                               },
+                               {
+                                   "title":  "Circle",
+                                   "problem":  "Find the area and circumference of a circle with radius 7 cm, using pi = 22/7.",
+                                   "steps":  [
+                                                 "Area = pi r^2 = (22/7) x 49 = 154 cm^2.",
+                                                 "Circumference = 2 pi r = 2 x (22/7) x 7 = 44 cm."
+                                             ],
+                                   "answer":  "Area 154 cm^2; circumference 44 cm."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Triangle angle sum",
+                         "detail":  "The three interior angles add to 180 degrees."
+                     },
+                     {
+                         "title":  "Triangle area",
+                         "detail":  "Area = 1/2 x base x perpendicular height."
+                     },
+                     {
+                         "title":  "Pythagoras",
+                         "detail":  "In a right triangle, a^2 + b^2 = c^2, where c is the hypotenuse."
+                     },
+                     {
+                         "title":  "Circle",
+                         "detail":  "Area = pi r^2; circumference = 2 pi r."
+                     },
+                     {
+                         "title":  "Cuboid",
+                         "detail":  "Volume = length x breadth x height; surface area = 2(lb + bh + hl)."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Using a slanted side as the height of a triangle.",
+                             "fix":  "Height must be perpendicular to the chosen base."
+                         },
+                         {
+                             "mistake":  "Mixing square and cubic units.",
+                             "fix":  "Area uses square units; volume uses cubic units."
+                         },
+                         {
+                             "mistake":  "Using diameter as radius in circle formulas.",
+                             "fix":  "Divide diameter by 2 first."
+                         }
+                     ],
+        "memoryTip":  "Perimeter is a fence, area is paint, volume is water. Match the unit to the dimension.",
+        "practice":  [
+                         {
+                             "prompt":  "Find the area of a triangle with base 10 and height 7.",
+                             "answer":  "35 square units."
+                         },
+                         {
+                             "prompt":  "Find the volume of a cube with side 4 cm.",
+                             "answer":  "64 cm^3."
+                         },
+                         {
+                             "prompt":  "A rectangle is 9 by 5. Find its perimeter.",
+                             "answer":  "28 units."
+                         }
+                     ],
+        "sourceRef":  "Chapter 14 (Geometry and Mensuration) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "data-interpretation",
+        "slug":  "data-interpretation-workflow",
+        "title":  "Read the chart before calculating",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Extract the right values from tables and charts and answer comparison and percentage questions efficiently.",
+        "explanation":  "Data interpretation rewards a fixed workflow: read the title, axes, units and legend; identify exactly what is asked; then calculate only the needed values. For comparisons, use differences or ratios. For percentage change, divide the change by the original value. Approximate when options are far apart, but keep units consistent.",
+        "analogy":  "A data set is a map. Reading the legend is checking the map key before you choose a route; calculating first is like driving without knowing whether distances are miles or kilometres.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Percentage more",
+                                   "problem":  "Sales in year A are 200 and in year B are 250. By what percentage did sales increase?",
+                                   "steps":  [
+                                                 "Increase = 250 - 200 = 50.",
+                                                 "Use the original year as base: 50/200 x 100%.",
+                                                 "Simplify: 25%."
+                                             ],
+                                   "answer":  "25% increase."
+                               },
+                               {
+                                   "title":  "Ratio from a table",
+                                   "problem":  "A table shows 30 boys and 20 girls. Find the ratio of boys to the total.",
+                                   "steps":  [
+                                                 "Total = 30 + 20 = 50.",
+                                                 "Boys:total = 30:50.",
+                                                 "Simplify by 10."
+                                             ],
+                                   "answer":  "3:5."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Read first",
+                         "detail":  "Check title, axes, units, legend and any footnotes before reading numbers."
+                     },
+                     {
+                         "title":  "Percentage change",
+                         "detail":  "Change percentage = (new - old) / old x 100."
+                     },
+                     {
+                         "title":  "Ratio to total",
+                         "detail":  "Part-to-whole ratio uses the sum of all parts in the denominator."
+                     },
+                     {
+                         "title":  "Approximation",
+                         "detail":  "Round only after identifying the exact quantities being compared."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Using the new value as the base for percentage change.",
+                             "fix":  "Use the original value as the denominator."
+                         },
+                         {
+                             "mistake":  "Ignoring units shown in thousands or millions.",
+                             "fix":  "Carry the unit through the calculation or cancel it deliberately."
+                         },
+                         {
+                             "mistake":  "Reading a bar height without checking the axis scale.",
+                             "fix":  "Check where zero is and what each gridline represents."
+                         }
+                     ],
+        "memoryTip":  "Title, units, question, values, calculation. Change is measured from the original.",
+        "practice":  [
+                         {
+                             "prompt":  "A value rises from 80 to 100. Find the percentage increase.",
+                             "answer":  "25%."
+                         },
+                         {
+                             "prompt":  "In a class of 40, 24 are girls. Find the girl:boy ratio.",
+                             "answer":  "3:2."
+                         },
+                         {
+                             "prompt":  "A chart\u0027s axis starts at 100, not zero. What should you check before comparing bars?",
+                             "answer":  "The truncated axis can exaggerate differences; compare actual values, not visual height alone."
+                         }
+                     ],
+        "sourceRef":  "Chapter 15 (Data Interpretation) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "number-series",
+        "slug":  "number-series-patterns",
+        "title":  "Find the rule behind a series",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Recognise difference, ratio, alternating, square and mixed patterns in number and letter series.",
+        "explanation":  "Start with first differences. If they are constant, the series is arithmetic. If the differences change in a regular way, look at second differences. If terms grow quickly, test ratios. Also check alternating operations, squares, cubes and coprime integer rules. For letter series, write the alphabet positions and test shifts.",
+        "analogy":  "A series is a hidden machine. Feeding the terms through candidate operations is like testing gears: difference, ratio and square patterns are the usual gearboxes.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Second differences",
+                                   "problem":  "Find the next term: 2, 6, 12, 20, 30, ?",
+                                   "steps":  [
+                                                 "First differences: 4, 6, 8, 10.",
+                                                 "The differences increase by 2, so the next difference is 12.",
+                                                 "Next term = 30 + 12 = 42."
+                                             ],
+                                   "answer":  "42."
+                               },
+                               {
+                                   "title":  "Squares",
+                                   "problem":  "Find the next term: 1, 4, 9, 16, ?",
+                                   "steps":  [
+                                                 "These are 1^2, 2^2, 3^2, 4^2.",
+                                                 "The next square is 5^2."
+                                             ],
+                                   "answer":  "25."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "First difference",
+                         "detail":  "Subtract consecutive terms; constant differences mean an arithmetic series."
+                     },
+                     {
+                         "title":  "Ratio test",
+                         "detail":  "Divide consecutive terms when growth is rapid; a constant ratio means a geometric series."
+                     },
+                     {
+                         "title":  "Second difference",
+                         "detail":  "If first differences change regularly, check their differences."
+                     },
+                     {
+                         "title":  "Known sequences",
+                         "detail":  "Compare with squares, cubes, primes and factorials."
+                     },
+                     {
+                         "title":  "Letters",
+                         "detail":  "Convert letters to positions and test constant or alternating shifts."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Finding one matching pattern and stopping.",
+                             "fix":  "Test the pattern on every consecutive pair, not just one."
+                         },
+                         {
+                             "mistake":  "Assuming a series must use the same operation throughout.",
+                             "fix":  "Check alternating and mixed operations."
+                         },
+                         {
+                             "mistake":  "Ignoring letter positions for alphabet series.",
+                             "fix":  "Write A=1 through Z=26 before testing shifts."
+                         }
+                     ],
+        "memoryTip":  "Difference, ratio, squares, alternating. The rule must fit every gap you have, not just the last two terms.",
+        "practice":  [
+                         {
+                             "prompt":  "Find the next term: 3, 6, 12, 24, ?",
+                             "answer":  "48."
+                         },
+                         {
+                             "prompt":  "Find the next term: 10, 13, 17, 22, ?",
+                             "answer":  "28, with differences 3, 4, 5, 6."
+                         },
+                         {
+                             "prompt":  "C, F, I, L, ?",
+                             "answer":  "O, because each letter advances by 3 positions."
+                         }
+                     ],
+        "sourceRef":  "Chapter 16 (Number Series) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "coding-and-decoding",
+        "slug":  "coding-decoding-shifts",
+        "title":  "Decode the rule, then apply it",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Identify letter shifts, reversals and symbol substitutions in coding questions.",
+        "explanation":  "Write the alphabet with positions if shifts are involved. Compare each coded letter with its original to find a constant shift, alternating shift or reversal. For word codes, check whether letters are moved forward, backward, reversed, or replaced by the next/previous letter. Apply the discovered rule consistently to the target word.",
+        "analogy":  "A code is a translation rule. Once you know the rule, translating a new word is mechanical; guessing a translation without the rule is unreliable.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Forward shift",
+                                   "problem":  "If CAT is coded as DBU, how is DOG coded?",
+                                   "steps":  [
+                                                 "C -\u003e D, A -\u003e B, T -\u003e U: each letter moves one step forward.",
+                                                 "Apply the same shift to D, O, G.",
+                                                 "D -\u003e E, O -\u003e P, G -\u003e H."
+                                             ],
+                                   "answer":  "EPH."
+                               },
+                               {
+                                   "title":  "Backward shift",
+                                   "problem":  "If MORNING is coded with each letter moved two steps back, what is the code?",
+                                   "steps":  [
+                                                 "M -\u003e K, O -\u003e M, R -\u003e P, N -\u003e L.",
+                                                 "I -\u003e G, N -\u003e L, G -\u003e E.",
+                                                 "Join the translated letters."
+                                             ],
+                                   "answer":  "KMPLGLE."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Position map",
+                         "detail":  "Write A=1 to Z=26 and convert ambiguous letters into positions."
+                     },
+                     {
+                         "title":  "Constant shift",
+                         "detail":  "Compare every original-coded pair; if the shift is constant, apply it to all target letters."
+                     },
+                     {
+                         "title":  "Reversal",
+                         "detail":  "Check whether the coded word is the original word backwards."
+                     },
+                     {
+                         "title":  "Alternating rules",
+                         "detail":  "Check odd and even positions separately if one shift fails."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Deriving a rule from one letter.",
+                             "fix":  "Verify the rule on every letter of the example."
+                         },
+                         {
+                             "mistake":  "Forgetting to wrap around the alphabet.",
+                             "fix":  "After Z comes A; after A comes Z when shifting backward."
+                         },
+                         {
+                             "mistake":  "Mixing word-order and letter-shift rules.",
+                             "fix":  "Test one transformation type at a time."
+                         }
+                     ],
+        "memoryTip":  "Write positions, compare all letters, verify the rule, then translate. Wrap around the alphabet carefully.",
+        "practice":  [
+                         {
+                             "prompt":  "If each letter in BAT moves +1, what is the code?",
+                             "answer":  "CBU."
+                         },
+                         {
+                             "prompt":  "If WORD is reversed, what is the code?",
+                             "answer":  "DROW."
+                         },
+                         {
+                             "prompt":  "If PEN is coded as QFO, what is the rule?",
+                             "answer":  "Each letter moves one step forward."
+                         }
+                     ],
+        "sourceRef":  "Chapter 17 (Coding and Decoding) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "blood-relations",
+        "slug":  "blood-relations-family-tree",
+        "title":  "Draw the family tree",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Translate relationship statements into a family tree and answer generation and relation questions accurately.",
+        "explanation":  "Use a small set of symbols: horizontal line for siblings, vertical line for parent-child, and mark gender where stated. Work through one sentence at a time. Determine generation differences before naming the relation. Do not assume a gender from a role unless the statement makes it explicit.",
+        "analogy":  "A family tree is a graph. People are nodes and relationships are edges. Tracing the path from one node to another tells you the relation.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Parent through a sibling",
+                                   "problem":  "P is Q\u0027s mother. Q is R\u0027s brother. How is P related to R?",
+                                   "steps":  [
+                                                 "Q is male and R is Q\u0027s sibling.",
+                                                 "P is Q\u0027s mother, so P is also the mother of Q\u0027s sibling R.",
+                                                 "The relation is mother."
+                                             ],
+                                   "answer":  "P is R\u0027s mother."
+                               },
+                               {
+                                   "title":  "Grandparent",
+                                   "problem":  "A is B\u0027s father. B is C\u0027s father. How is A related to C?",
+                                   "steps":  [
+                                                 "A is one generation above B.",
+                                                 "B is one generation above C.",
+                                                 "Therefore A is two generations above C."
+                                             ],
+                                   "answer":  "A is C\u0027s grandfather."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Generations",
+                         "detail":  "Count vertical steps: parent-child is one generation; grandparent-grandchild is two."
+                     },
+                     {
+                         "title":  "Siblings",
+                         "detail":  "Brothers and sisters share at least one parent; a sibling\u0027s parent is also your parent."
+                     },
+                     {
+                         "title":  "Gender clues",
+                         "detail":  "Use only explicit words such as mother, father, brother or sister."
+                     },
+                     {
+                         "title":  "Spouse links",
+                         "detail":  "Mark marriage separately; it connects generations without being a blood parent-child edge."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Assuming every sibling is male or female from the name.",
+                             "fix":  "Use only the stated gender; otherwise keep the relation neutral."
+                         },
+                         {
+                             "mistake":  "Ignoring a second marriage or half-sibling clue.",
+                             "fix":  "Draw each stated link explicitly."
+                         },
+                         {
+                             "mistake":  "Naming a relation without counting generations.",
+                             "fix":  "Trace the path and count vertical steps."
+                         }
+                     ],
+        "memoryTip":  "Circle people, draw parent edges vertically, sibling edges horizontally, and count generations before naming the relation.",
+        "practice":  [
+                         {
+                             "prompt":  "X is Y\u0027s sister. Y is Z\u0027s son. How is X related to Z?",
+                             "answer":  "X is Z\u0027s daughter."
+                         },
+                         {
+                             "prompt":  "A is B\u0027s mother and B is C\u0027s daughter. How is A related to C?",
+                             "answer":  "A is C\u0027s grandmother."
+                         },
+                         {
+                             "prompt":  "If R is S\u0027s father and T is S\u0027s mother, how are R and T related?",
+                             "answer":  "They are spouses/parents of the same child."
+                         }
+                     ],
+        "sourceRef":  "Chapter 18 (Blood Relations) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "direction-sense",
+        "slug":  "direction-displacement",
+        "title":  "Turns, coordinates and displacement",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Track direction changes with a compass sketch and compute shortest distance using right triangles.",
+        "explanation":  "Use a fixed compass: north up, east right, south down, west left. A right turn rotates 90 degrees clockwise; a left turn rotates 90 degrees anticlockwise. Track net east-west and north-south movement separately. The shortest distance from start to finish is the hypotenuse of the resulting right triangle.",
+        "analogy":  "Walking directions are grid moves. Moving east changes the horizontal coordinate, moving north changes the vertical one; turns only change which axis you move along next.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Net displacement",
+                                   "problem":  "A person walks 3 km east, then 4 km north. How far are they from the start?",
+                                   "steps":  [
+                                                 "East and north are perpendicular.",
+                                                 "Use Pythagoras: distance = sqrt(3^2 + 4^2).",
+                                                 "sqrt(9 + 16) = sqrt(25) = 5."
+                                             ],
+                                   "answer":  "5 km."
+                               },
+                               {
+                                   "title":  "Facing and turning",
+                                   "problem":  "A person faces north, turns right, then turns left. Which direction are they facing?",
+                                   "steps":  [
+                                                 "Facing north, a right turn points east.",
+                                                 "Facing east, a left turn points north.",
+                                                 "Net result is north."
+                                             ],
+                                   "answer":  "North."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Right turn",
+                         "detail":  "Rotate 90 degrees clockwise."
+                     },
+                     {
+                         "title":  "Left turn",
+                         "detail":  "Rotate 90 degrees anticlockwise."
+                     },
+                     {
+                         "title":  "Opposite turn",
+                         "detail":  "Two turns in the same direction face the opposite direction."
+                     },
+                     {
+                         "title":  "Shortest distance",
+                         "detail":  "Use sqrt(horizontal^2 + vertical^2) for perpendicular movements."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Adding all distances travelled instead of finding displacement.",
+                             "fix":  "Track net coordinates; total path length and shortest distance are different."
+                         },
+                         {
+                             "mistake":  "Turning relative to the page rather than the person\u0027s current facing.",
+                             "fix":  "Update the facing direction after every turn."
+                         },
+                         {
+                             "mistake":  "Mixing left and right when facing south.",
+                             "fix":  "Draw the compass or rotate the page mentally before turning."
+                         }
+                     ],
+        "memoryTip":  "Draw north first. Move coordinates, not just distances. Shortest path is the hypotenuse.",
+        "practice":  [
+                         {
+                             "prompt":  "Walk 6 km north and 8 km east. Find the shortest distance from the start.",
+                             "answer":  "10 km."
+                         },
+                         {
+                             "prompt":  "Facing west, turn right. Which direction now?",
+                             "answer":  "North."
+                         },
+                         {
+                             "prompt":  "A person walks 5 east, 5 west. What is the displacement?",
+                             "answer":  "0; the movements cancel."
+                         }
+                     ],
+        "sourceRef":  "Chapter 19 (Direction Sense) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "seating-arrangement",
+        "slug":  "linear-circular-seating",
+        "title":  "Build the arrangement one clue at a time",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Place people in linear and circular arrangements by using definite clues before uncertain ones.",
+        "explanation":  "For linear arrangements, draw as many seats as named and mark left/right from the stated facing direction. For circular arrangements, fix one person to remove rotation, note whether people face the centre or outward, and remember that left/right reverses for outward-facing people. Start with extreme positions, immediate neighbours and exact distances; leave \u0027somewhere left/right\u0027 clues for later.",
+        "analogy":  "A seating puzzle is a jigsaw. Definite clues are edge pieces; place them first, then fill the gaps with relative clues.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Linear arrangement",
+                                   "problem":  "Five people P, Q, R, S and T sit in a row facing north. P is at the extreme left, T at the extreme right, Q is immediately to the right of P, and R is immediately to the left of T. Who is third from the left?",
+                                   "steps":  [
+                                                 "P is seat 1; T is seat 5.",
+                                                 "Q is seat 2; R is seat 4.",
+                                                 "Only S remains for seat 3.",
+                                                 "The row is P, Q, S, R, T."
+                                             ],
+                                   "answer":  "S is third from the left."
+                               },
+                               {
+                                   "title":  "Circular positions",
+                                   "problem":  "Four people A, B, C and D sit around a circle facing the centre. A is opposite C and B is immediately to A\u0027s right. Who is opposite B?",
+                                   "steps":  [
+                                                 "Place A at the top and C at the bottom, since they are opposite.",
+                                                 "A faces the centre, so A\u0027s right points to the page-left seat (9 o\u0027clock). Place B there.",
+                                                 "The remaining seat at 3 o\u0027clock belongs to D.",
+                                                 "D is therefore opposite B."
+                                             ],
+                                   "answer":  "D is opposite B."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Fix the frame",
+                         "detail":  "Draw all seats and mark the facing direction before placing anyone."
+                     },
+                     {
+                         "title":  "Use definite clues first",
+                         "detail":  "Extremes, immediate neighbours and exact gaps are strongest."
+                     },
+                     {
+                         "title":  "Circular rotation",
+                         "detail":  "Fix one person to break rotational symmetry; then positions become unique."
+                     },
+                     {
+                         "title":  "Facing direction",
+                         "detail":  "Left and right are from the person\u0027s perspective, not the reader\u0027s."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Treating a \u0027somewhere to the right\u0027 clue as \u0027immediately right\u0027.",
+                             "fix":  "Only \u0027immediate\u0027 or \u0027next to\u0027 fixes adjacency."
+                         },
+                         {
+                             "mistake":  "Assuming clockwise equals right for everyone.",
+                             "fix":  "Right depends on whether the person faces the centre or outward."
+                         },
+                         {
+                             "mistake":  "Forgetting to use every clue.",
+                             "fix":  "Check that each clue is satisfied before choosing an answer."
+                         }
+                     ],
+        "memoryTip":  "Fix the frame, place definite seats, then fill relative gaps. For circles, fix one person and confirm facing.",
+        "practice":  [
+                         {
+                             "prompt":  "In a row of five, A is third from the left. What is A\u0027s position from the right?",
+                             "answer":  "Third from the right."
+                         },
+                         {
+                             "prompt":  "Four people sit around a circle. How many distinct rotations are removed by fixing one person?",
+                             "answer":  "Four; fixing one person leaves one unique arrangement per relative order."
+                         },
+                         {
+                             "prompt":  "If B is immediately right of A and A faces north, on which side of A is B?",
+                             "answer":  "East."
+                         }
+                     ],
+        "sourceRef":  "Chapter 20 (Seating Arrangement) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "syllogism",
+        "slug":  "syllogism-venn",
+        "title":  "Venn diagrams make syllogisms visible",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Test conclusions against every possible Venn arrangement of the given statements.",
+        "explanation":  "Translate \u0027All A are B\u0027 as A inside B, \u0027No A is B\u0027 as disjoint circles, and \u0027Some A are B\u0027 as an overlap. A conclusion follows only if it is true in every diagram consistent with the statements. Do not add real-world knowledge; use only the stated relationships.",
+        "analogy":  "Statements are constraints on a diagram. A conclusion is valid only if every legal drawing satisfies it, not just one convenient drawing.",
+        "workedExamples":  [
+                               {
+                                   "title":  "All and some",
+                                   "problem":  "Statements: All roses are flowers. Some flowers are red. Does \u0027Some roses are red\u0027 follow?",
+                                   "steps":  [
+                                                 "Draw roses entirely inside flowers.",
+                                                 "The red flowers may or may not overlap roses.",
+                                                 "There is a valid diagram with no red rose."
+                                             ],
+                                   "answer":  "No, it does not necessarily follow."
+                               },
+                               {
+                                   "title":  "Exclusion",
+                                   "problem":  "Statements: All roses are flowers. No flowers are stones. Does \u0027No roses are stones\u0027 follow?",
+                                   "steps":  [
+                                                 "Roses lie inside flowers.",
+                                                 "Flowers are completely separate from stones.",
+                                                 "Therefore roses are separate from stones."
+                                             ],
+                                   "answer":  "Yes, it follows."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "All A are B",
+                         "detail":  "A is a subset of B."
+                     },
+                     {
+                         "title":  "No A is B",
+                         "detail":  "A and B are disjoint."
+                     },
+                     {
+                         "title":  "Some A are B",
+                         "detail":  "At least one element lies in both."
+                     },
+                     {
+                         "title":  "Validity test",
+                         "detail":  "A conclusion follows only if it holds in every possible diagram."
+                     },
+                     {
+                         "title":  "Complement",
+                         "detail":  "If all A are B and no B is C, then no A is C."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Using real-world facts to fill gaps.",
+                             "fix":  "Use only the stated premises."
+                         },
+                         {
+                             "mistake":  "Treating \u0027some\u0027 as \u0027some but not all\u0027.",
+                             "fix":  "In logic, \u0027some\u0027 means at least one and may include all."
+                         },
+                         {
+                             "mistake":  "Accepting a conclusion that is true in only one diagram.",
+                             "fix":  "Test a diagram where the overlap is absent or different."
+                         }
+                     ],
+        "memoryTip":  "All means inside, none means apart, some means overlap. A conclusion must survive every legal diagram.",
+        "practice":  [
+                         {
+                             "prompt":  "All cats are mammals. All mammals are animals. Does \u0027All cats are animals\u0027 follow?",
+                             "answer":  "Yes."
+                         },
+                         {
+                             "prompt":  "Some pens are blue. Does \u0027All pens are blue\u0027 follow?",
+                             "answer":  "No."
+                         },
+                         {
+                             "prompt":  "No reptiles are mammals. All snakes are reptiles. Does \u0027No snakes are mammals\u0027 follow?",
+                             "answer":  "Yes."
+                         }
+                     ],
+        "sourceRef":  "Chapter 21 (Syllogism) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "statement-and-conclusion",
+        "slug":  "statement-conclusion-assumption",
+        "title":  "Conclusions must be forced by the statement",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Separate what a statement guarantees from what is merely plausible, and judge assumptions and arguments carefully.",
+        "explanation":  "A conclusion follows only when it must be true given the statement. An assumption is an unstated premise the argument depends on. A strong argument is directly relevant, material and logically connected to the statement. Avoid bringing in extra facts or treating a possibility as a certainty.",
+        "analogy":  "A statement is a locked box of facts. A conclusion is valid only if it is already inside the box, not if it might fit nearby.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Conditional warning",
+                                   "problem":  "Statement: \u0027The company will close the factory if losses continue.\u0027 Conclusions: I. Losses are continuing. II. The factory has closed. Do either follow?",
+                                   "steps":  [
+                                                 "The statement is conditional: closure happens only if losses continue.",
+                                                 "It does not say losses are continuing.",
+                                                 "It does not say closure has happened."
+                                             ],
+                                   "answer":  "Neither conclusion follows."
+                               },
+                               {
+                                   "title":  "Strong argument",
+                                   "problem":  "Statement: \u0027A city should improve public transport.\u0027 Argument: \u0027It can reduce traffic congestion and commute time.\u0027 Is the argument strong?",
+                                   "steps":  [
+                                                 "The argument is directly relevant to public transport.",
+                                                 "It gives a concrete benefit connected to the proposal.",
+                                                 "It does not rely on an unrelated personal preference."
+                                             ],
+                                   "answer":  "Yes, the argument is strong."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Must versus may",
+                         "detail":  "A valid conclusion must be true, not merely possible."
+                     },
+                     {
+                         "title":  "Conditional logic",
+                         "detail":  "\u0027If P then Q\u0027 does not prove P or Q by itself."
+                     },
+                     {
+                         "title":  "Assumption",
+                         "detail":  "Ask what unstated belief the argument needs in order to work."
+                     },
+                     {
+                         "title":  "Strong argument",
+                         "detail":  "Relevant, material and logically linked to the proposal."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Converting \u0027if\u0027 into \u0027therefore\u0027.",
+                             "fix":  "Keep the conditional direction; do not affirm the antecedent or consequent automatically."
+                         },
+                         {
+                             "mistake":  "Rejecting a conclusion because it seems unlikely in real life.",
+                             "fix":  "Judge only logical necessity from the statement."
+                         },
+                         {
+                             "mistake":  "Calling an irrelevant emotional appeal a strong argument.",
+                             "fix":  "Check direct relevance and material impact."
+                         }
+                     ],
+        "memoryTip":  "Ask: does the statement force this? If it only permits it, the conclusion does not follow.",
+        "practice":  [
+                         {
+                             "prompt":  "Statement: \u0027All employees completed training.\u0027 Does \u0027Some employees completed training\u0027 follow?",
+                             "answer":  "Yes; if all did, then at least one did, provided the group is non-empty."
+                         },
+                         {
+                             "prompt":  "Statement: \u0027If it rains, the match is cancelled.\u0027 It is not raining. Is the match necessarily played?",
+                             "answer":  "No; the statement specifies only what happens if it rains."
+                         },
+                         {
+                             "prompt":  "What makes an argument strong?",
+                             "answer":  "Direct relevance, material evidence and a logical connection to the claim."
+                         }
+                     ],
+        "sourceRef":  "Chapter 22 (Statement and Conclusion) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "analogy",
+        "slug":  "analogy-relationships",
+        "title":  "Name the relationship before choosing",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Identify the precise relationship in a word, number or symbol analogy and apply the same relationship.",
+        "explanation":  "State the link in a short sentence: \u0027A doctor works in a hospital\u0027 or \u00278 is the cube of 2\u0027. Then test the options against that same sentence. Watch for relationships that can be read in more than one direction. For number analogies, check operations, squares, cubes, primes and digit patterns.",
+        "analogy":  "An analogy is a bridge with two matching supports. The relationship, not the surface words, is the bridge you must rebuild.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Workplace relation",
+                                   "problem":  "Doctor : Hospital :: Teacher : ?",
+                                   "steps":  [
+                                                 "A doctor works in a hospital.",
+                                                 "A teacher works in a school.",
+                                                 "Choose the option that names the workplace."
+                                             ],
+                                   "answer":  "School."
+                               },
+                               {
+                                   "title":  "Cube relation",
+                                   "problem":  "2 : 8 :: 3 : ?",
+                                   "steps":  [
+                                                 "8 = 2^3.",
+                                                 "Apply the cube operation to 3.",
+                                                 "3^3 = 27."
+                                             ],
+                                   "answer":  "27."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "State the relation",
+                         "detail":  "Write a precise sentence connecting the first pair before looking at options."
+                     },
+                     {
+                         "title":  "Same direction",
+                         "detail":  "Preserve the order of the relationship: cause-effect and part-whole are not reversible."
+                     },
+                     {
+                         "title":  "Number checks",
+                         "detail":  "Test addition, multiplication, squares, cubes and digit reversals."
+                     },
+                     {
+                         "title":  "Eliminate",
+                         "detail":  "Reject options that fit a different or weaker relationship."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Choosing an option that is merely associated with the word.",
+                             "fix":  "Match the exact relationship, not a loose topic connection."
+                         },
+                         {
+                             "mistake":  "Reversing a cause-effect relation.",
+                             "fix":  "Keep the first pair in the same order as the question."
+                         },
+                         {
+                             "mistake":  "Stopping at the first number pattern that seems to fit.",
+                             "fix":  "Test the pattern on the complete pair and the target."
+                         }
+                     ],
+        "memoryTip":  "Say the relationship aloud in one sentence, then apply exactly that sentence to the answer.",
+        "practice":  [
+                         {
+                             "prompt":  "Pen : Write :: Knife : ?",
+                             "answer":  "Cut."
+                         },
+                         {
+                             "prompt":  "4 : 16 :: 5 : ?",
+                             "answer":  "25, using squares."
+                         },
+                         {
+                             "prompt":  "Bird : Nest :: Bee : ?",
+                             "answer":  "Hive."
+                         }
+                     ],
+        "sourceRef":  "Chapter 23 (Analogy) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "grammar-and-usage",
+        "slug":  "grammar-agreement-tense",
+        "title":  "Agreement, tense and clean sentences",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Spot subject-verb agreement, tense consistency and misplaced-modifier errors in placement tests.",
+        "explanation":  "A singular subject takes a singular verb; a plural subject takes a plural verb. In \u0027each\u0027, \u0027every\u0027, \u0027either\u0027 and \u0027neither\u0027 constructions, the subject is usually singular. Neither/nor verbs agree with the nearer subject. Keep tense consistent with the time marker. A modifier should sit next to the word it describes.",
+        "analogy":  "Grammar is traffic control: subjects and verbs must agree on the lane, tenses must stay in the same time zone, and modifiers must park next to the word they modify.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Indefinite singular",
+                                   "problem":  "Choose the correct verb: \u0027Each of the students ___ submitted the assignment.\u0027",
+                                   "steps":  [
+                                                 "The subject is \u0027each\u0027, which is singular.",
+                                                 "The phrase \u0027of the students\u0027 does not change the subject.",
+                                                 "Use the singular verb \u0027has\u0027."
+                                             ],
+                                   "answer":  "Each of the students has submitted the assignment."
+                               },
+                               {
+                                   "title":  "Since with present perfect continuous",
+                                   "problem":  "Correct the sentence: \u0027He is working here since 2020.\u0027",
+                                   "steps":  [
+                                                 "\u0027Since 2020\u0027 marks a period continuing to the present.",
+                                                 "Use present perfect continuous: has been working.",
+                                                 "The completed sentence is \u0027He has been working here since 2020.\u0027"
+                                             ],
+                                   "answer":  "He has been working here since 2020."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Subject-verb agreement",
+                         "detail":  "Match the verb to the actual subject, not to a noun in a prepositional phrase."
+                     },
+                     {
+                         "title":  "Indefinite pronouns",
+                         "detail":  "Each, every, either and neither are singular in standard usage."
+                     },
+                     {
+                         "title":  "Neither...nor",
+                         "detail":  "The verb agrees with the subject nearer to it."
+                     },
+                     {
+                         "title":  "Time markers",
+                         "detail":  "Since/for with an action continuing now usually needs perfect or perfect continuous tense."
+                     },
+                     {
+                         "title":  "Modifier placement",
+                         "detail":  "Place a describing phrase next to the noun it describes."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Matching the verb to the nearest noun in a phrase.",
+                             "fix":  "Find the true subject first."
+                         },
+                         {
+                             "mistake":  "Mixing past and present without a time shift.",
+                             "fix":  "Keep one time frame unless the meaning requires a change."
+                         },
+                         {
+                             "mistake":  "Putting a modifier at the end so it describes the wrong noun.",
+                             "fix":  "Move it beside the intended noun."
+                         }
+                     ],
+        "memoryTip":  "Find the subject, ignore the phrase, match the verb. Time words choose the tense; modifiers sit beside their noun.",
+        "practice":  [
+                         {
+                             "prompt":  "Choose: \u0027Neither the manager nor the employees ___ ready.\u0027",
+                             "answer":  "are, because the nearer subject \u0027employees\u0027 is plural."
+                         },
+                         {
+                             "prompt":  "Correct: \u0027She has completed the report yesterday.\u0027",
+                             "answer":  "She completed the report yesterday."
+                         },
+                         {
+                             "prompt":  "Correct: \u0027Walking down the road, the tower was seen by us.\u0027",
+                             "answer":  "Walking down the road, we saw the tower."
+                         }
+                     ],
+        "sourceRef":  "Chapter 24 (Grammar and Usage) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    },
+    {
+        "topicSlug":  "vocabulary",
+        "slug":  "vocabulary-context",
+        "title":  "Use context, roots and opposites",
+        "level":  "BEGINNER",
+        "order":  1,
+        "objective":  "Infer word meaning from context and use roots, prefixes and suffixes to eliminate wrong options.",
+        "explanation":  "In a vocabulary question, replace the target word with each option and check whether the sentence keeps its meaning and tone. Learn common roots and prefixes: bene- means good, mal- means bad, mit- often relates to sending or lessening, and -cracy means rule. Antonyms require the opposite meaning, not merely a different word.",
+        "analogy":  "Context is the socket and the word is the plug. An option that does not fit the sentence\u0027s meaning or tone is the wrong shape, even if it is a real word.",
+        "workedExamples":  [
+                               {
+                                   "title":  "Context clue",
+                                   "problem":  "Choose the closest meaning of \u0027meticulous\u0027 in: \u0027She kept meticulous records, checking every entry twice.\u0027",
+                                   "steps":  [
+                                                 "The clue is \u0027checking every entry twice\u0027.",
+                                                 "This shows great care and attention to detail.",
+                                                 "The closest option is \u0027careful\u0027."
+                                             ],
+                                   "answer":  "Careful and detail-oriented."
+                               },
+                               {
+                                   "title":  "Opposite",
+                                   "problem":  "Choose the antonym of \u0027scarce\u0027.",
+                                   "steps":  [
+                                                 "Scarce means in short supply.",
+                                                 "The opposite is plentiful or abundant.",
+                                                 "Select the option meaning abundant."
+                                             ],
+                                   "answer":  "Abundant."
+                               }
+                           ],
+        "rule":  [
+                     {
+                         "title":  "Context first",
+                         "detail":  "Use the surrounding sentence before relying on memory of the word."
+                     },
+                     {
+                         "title":  "Roots and prefixes",
+                         "detail":  "Break unfamiliar words into meaningful parts to estimate the meaning."
+                     },
+                     {
+                         "title":  "Tone",
+                         "detail":  "Check whether the sentence is positive, negative or neutral."
+                     },
+                     {
+                         "title":  "Antonyms",
+                         "detail":  "Look for the exact opposite, not just a related word."
+                     }
+                 ],
+        "mistakes":  [
+                         {
+                             "mistake":  "Choosing a synonym that changes the sentence\u0027s tone.",
+                             "fix":  "Test the option inside the original sentence."
+                         },
+                         {
+                             "mistake":  "Treating a related word as an antonym.",
+                             "fix":  "State the target meaning, then find its opposite."
+                         },
+                         {
+                             "mistake":  "Ignoring prefixes that reverse meaning.",
+                             "fix":  "Check un-, dis-, in-, im- and non- carefully."
+                         }
+                     ],
+        "memoryTip":  "Plug the option into the sentence. Meaning plus tone must both fit. For antonyms, say \u0027the opposite of ___ is ___\u0027.",
+        "practice":  [
+                         {
+                             "prompt":  "What does \u0027candid\u0027 most nearly mean?",
+                             "answer":  "Frank and honest."
+                         },
+                         {
+                             "prompt":  "Choose the antonym of \u0027expand\u0027.",
+                             "answer":  "Contract."
+                         },
+                         {
+                             "prompt":  "Use context: \u0027The instructions were ambiguous.\u0027 What does ambiguous mean?",
+                             "answer":  "Open to more than one interpretation; unclear."
+                         }
+                     ],
+        "sourceRef":  "Chapter 25 (Vocabulary) of TitanApt_10000.pdf; lesson authored for this build and examples independently checked.",
+        "reviewer":  "TitanApt editorial review"
+    }
+]

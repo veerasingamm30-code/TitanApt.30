@@ -1,0 +1,45 @@
+{
+  "name": "titanapt",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TitanApt - aptitude learning and IT placement preparation platform",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "predev": "npm run build -w @titanapt/shared",
+    "dev": "node scripts/with-db.mjs npm run dev:services",
+    "dev:services": "concurrently -k -n API,WEB -c yellow,cyan \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "npm run dev -w @titanapt/api",
+    "dev:web": "npm run dev -w @titanapt/web",
+    "setup": "node scripts/setup.mjs",
+    "db:migrate": "node scripts/with-db.mjs npx prisma migrate dev",
+    "db:deploy": "node scripts/with-db.mjs npx prisma migrate deploy",
+    "db:generate": "prisma generate",
+    "db:seed": "node scripts/with-db.mjs npx tsx prisma/seed.ts",
+    "db:studio": "node scripts/with-db.mjs npx prisma studio",
+    "import:pdf": "node scripts/with-db.mjs npx tsx scripts/import-pdf.ts",
+    "build": "npm run build -w @titanapt/shared && npm run build -w @titanapt/api && npm run build -w @titanapt/web",
+    "typecheck": "npm run typecheck -w @titanapt/shared && npm run typecheck -w @titanapt/api && npm run typecheck -w @titanapt/web",
+    "test": "npm run test -w @titanapt/api && npm run test -w @titanapt/web",
+    "smoke": "node scripts/smoke.mjs",
+    "start": "node apps/api/dist/index.js"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "devDependencies": {
+    "@embedded-postgres/windows-x64": "17.9.0-beta.17",
+    "concurrently": "^9.1.2",
+    "embedded-postgres": "17.9.0-beta.17",
+    "pg": "^8.13.1",
+    "prisma": "6.19.3",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.9"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
