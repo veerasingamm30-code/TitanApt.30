@@ -13,3 +13,6 @@ Thumbs.db
 apps/web/dist/
 apps/api/dist/
 packages/shared/dist/
+
+# AI coding agent internal data
+.refact/
